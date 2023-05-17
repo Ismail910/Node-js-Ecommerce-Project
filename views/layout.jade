@@ -1,0 +1,97 @@
+doctype html
+html
+    head
+        //metadata
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(name='description', content='Story Online')
+        meta(name='author', content='Story. All rights Reserved')
+        //title
+        title= title + ' | Node JS Project'
+        //stylesheet
+        link(rel='stylesheet', href='/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/css/bootstrap.min1.css')
+        link(rel='stylesheet', href='/css/font-awesome.min.css')
+        link(rel='stylesheet', href='/css/main.css')
+        link(rel='stylesheet', href='/css/responsive.css')
+    body
+        //header
+        header#header
+            //header_top
+            .header_top
+                .container
+                    .row
+                        .col-sm-6
+                            .contactinfo.text-center
+                                h1.text-danger
+                                    |Group1 ITI 
+                                    
+                        .col-sm-6
+                            .shop-menu.pull-right.text-center
+                                ul.nav.navbar-nav
+                                    -var orderCus = 'Account'
+                                    -var link = '/sign-in'
+                                    if customer
+                                        -orderCus=customer.FullName
+                                        -link='/usr/'
+                                    li
+                                        a(href=link)
+                                            i.fa.fa-user
+                                            =orderCus
+                                    li
+                                        a(href='/cart')
+                                            i.fa.fa-shopping-cart
+                                            |  Cart
+                                    //li
+                                    //    a(href='/checkout')
+                                    //        i.fa.fa-money
+                                    //        |  Checkout
+                                    if customer
+                                        li
+                                            a(href='/sign-out')
+                                                i.fa.fa-sign-out
+                                                |  Logout
+            ///header_top
+
+            //header-bottom
+            .header-bottom
+                .container
+                    .row
+                        .col-sm-9
+                            .navbar-header
+                                button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                                    span.sr-only Toggle navigation
+                                    span.icon-bar
+                                    span.icon-bar
+                                    span.icon-bar
+                            .mainmenu.pull-left
+                                ul.nav.navbar-nav.collapse.navbar-collapse
+                                    li
+                                        a(class={active: currentUrl === '/'}, href='/')
+                                            | Home
+                                    li
+                                        a(class={active: currentUrl === '/cat/all'}, href='/cat/all')
+                                            | Products
+                                    li
+                                        a(class={active: currentUrl === '/admin/orders'}, href='/admin/orders')
+                                            | Orders
+                        .col-sm-3
+                            .search_box.pull-right.mt-5
+                                input(type='text', placeholder='Search')
+                                
+            ///header-bottom
+        ///header
+
+        block content
+
+        //Footer
+        footer#footer
+            .footer-bottom.pt-5.pb-3.text-center
+                .container
+                        p.text-danger.fw-bold
+                            |All rights reserved | Desgin By Group One ITI.
+        ///Footer
+        script(src='/js/jquery-2.1.4.min.js')
+        script(src='/js/bootstrap.min.js')
+        script(src='/js/jquery.scrollUp.min.js')
+        script(src='/js/main.js')
